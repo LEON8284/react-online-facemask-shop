@@ -10,18 +10,10 @@ import paymentIcon from "./homeAssets/payment.png";
 import returnIcon from "./homeAssets/return.png";
 import trustIcon from "./homeAssets/trust.png";
 import { Link } from "react-router-dom";
+import HomeItem from "./homeItem";
+import AppContext from "./AppContext";
+
 class Home extends React.Component {
-  /*constructor(props) {
-    super(props);
-    this.state = {
-      animals: [],
-    };
-  }
-  componentDidMount() {
-    getAnimals().then((animals) => {
-      this.setState({ animals });
-    });
-  }*/
   render() {
     return (
       <div>
@@ -137,9 +129,17 @@ class Home extends React.Component {
             </div>
           </div>
         </section>
+        <section className="third-section">
+          <div className="row">
+            {this.context.products.map((products, index) => (
+              <HomeItem products={products} key={index} />
+            ))}
+          </div>
+        </section>
         <Footer></Footer>
       </div>
     );
   }
 }
+Home.contextType = AppContext; // any data we want to pass from our Route to Home will be done
 export default Home;
