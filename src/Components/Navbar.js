@@ -7,7 +7,7 @@ import React from "react";
 import Logo from "./logo.jpg";
 import "./index.css";
 import AppContext from "../AppContext";
-import { Link, Links } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Navbar extends React.Component {
   render() {
