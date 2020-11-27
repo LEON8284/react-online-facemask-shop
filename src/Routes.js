@@ -12,6 +12,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./Home";
+import Cart from "./Pages/cart";
 import AppContext from "./AppContext";
 import { getProducts } from "./repo";
 
@@ -54,6 +55,7 @@ class Routes extends React.Component {
       <AppContext.Provider value={this.state}>
         <Switch>
           <Route exact path="/" component={Home}></Route>
+          <Route path="/cart" component={Cart}></Route>
         </Switch>
       </AppContext.Provider>
     );

@@ -7,6 +7,7 @@ import React from "react";
 import Logo from "./logo.jpg";
 import "./index.css";
 import AppContext from "../AppContext";
+import { Link, Links } from "react-router-dom";
 
 class Navbar extends React.Component {
   render() {
@@ -16,9 +17,9 @@ class Navbar extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-2">
-                <a className="" href="#">
+                <Link className="" to="/">
                   <img className="w-100" src={Logo} alt="logo"></img>
-                </a>
+                </Link>
               </div>
               <div className="col-sm-2"></div>
               <div className="col-sm-8">
@@ -36,8 +37,8 @@ class Navbar extends React.Component {
                 >
                   <div className="col-xs-4">
                     <div className="dropdown">
-                      <a
-                        href="#"
+                      <Link
+                        to="/"
                         className="header-text"
                         data-toggle="dropdown"
                         data-offset="20,10"
@@ -53,7 +54,7 @@ class Navbar extends React.Component {
                             <i className="fas fa-caret-down" />
                           </div>
                         </div>
-                      </a>
+                      </Link>
                       <div className="dropdown-menu">
                         <form className="px-4 py-3">
                           <div className="form-group">
@@ -83,7 +84,7 @@ class Navbar extends React.Component {
                     </div>
                   </div>
                   <div className="col-xs-4">
-                    <a href="#" className="header-text">
+                    <Link to="/cart" className="header-text">
                       <div className="d-inline-flex">
                         <div className="icon-wrap">
                           <i className="header-icon fas fa-shopping-cart " />
@@ -95,10 +96,10 @@ class Navbar extends React.Component {
                           <div>Cart </div>
                         </div>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                   <div className="col-xs-4">
-                    <a href="#" className="header-text">
+                    <Link to="wishlist" className="header-text">
                       <div className="d-inline-flex">
                         <div className="icon-wrap">
                           <i className="header-icon fas fa-heart" />
@@ -110,7 +111,7 @@ class Navbar extends React.Component {
                           <div>Wishlist </div>
                         </div>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
