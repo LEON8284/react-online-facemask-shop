@@ -7,18 +7,18 @@ import AppContext from "../AppContext";
 
 class CartItem extends React.Component {
   render() {
-    let { prodcut } = this.props;
+    let { product } = this.props;
     return (
       <div className="card">
         <div className="card-body">
-          <img className="" alt="" src={prodcut.imageUrl}></img>
-          <h4 className="card-title">{prodcut.name}</h4>
+          <img className="" alt="" src={product.imageUrl}></img>
+          <h4 className="card-title">{product.name}</h4>
           <h5 className="card-text">
-            <small>price:</small>${prodcut.price}
+            <small>price:</small>${product.price}
           </h5>
           <span className="card-text">
             <small>Quantity added: </small>
-            {prodcut.qty_added}
+            {product.qty_added}
           </span>
         </div>
       </div>
