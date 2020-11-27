@@ -20,6 +20,22 @@ class Routes extends React.Component {
     super();
     this.state = {
       products: [],
+
+      cart: JSON.parse(localStorage.getItem("cart")) || [], // every thing we will have in our cart we will send it to our local storage.
+
+      // This is the function that adds our item to our  cart. It collects our products and saves it to our local storage.
+      addToCart: (product, qty) => {
+        let cart = this.state.cart;
+        cart.push({
+          product: product,
+          qty,
+          added: qty,
+        });
+        this.setState({
+          cart: cart,
+        });
+        localStorage.setItem("cart", JSON.stringify(cart));
+      },
     };
   }
   /**

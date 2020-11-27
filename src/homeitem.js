@@ -1,17 +1,14 @@
 import React from "react";
+import AppContext from "./AppContext";
 
 class HomeItem extends React.Component {
   render() {
     let { products } = this.props;
     return (
       <div className="col-sm-3">
-        <div className="card">
-          <div className="">
-            <img
-              className="img-fluid"
-              src={this.props.products.imageUrl}
-              alt=""
-            />
+        <div className="card p-3 mb-5">
+          <div className="text-center">
+            <img className="img-fluid" src={products.imageUrl} alt="" />
           </div>
           <hr />
           <h4 className="card-title">{products.name}</h4>
@@ -21,11 +18,20 @@ class HomeItem extends React.Component {
           </h5>
           <span className="card-text">
             <small>Available Quantity:</small>
-            {products.avilable_quantity}
+            {products.available_quantity}
           </span>
+          <div
+            className="btn btn-sm  btn-warning"
+            onClick={() => {
+              this.context.addToCart(products, 1);
+            }}
+          >
+            cart
+          </div>
         </div>
       </div>
     );
   }
 }
+HomeItem.contextType = AppContext;
 export default HomeItem;
