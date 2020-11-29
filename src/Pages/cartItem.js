@@ -9,9 +9,14 @@ class CartItem extends React.Component {
   render() {
     let { product } = this.props;
     return (
-      <div className="card">
+      <div className="card mb-3">
         <div className="card-body">
-          <img className="" alt="" src={product.imageUrl}></img>
+          <img
+            className="float-left"
+            alt=""
+            src={product.imageUrl}
+            style={{ width: "12%" }}
+          ></img>
           <h4 className="card-title">{product.name}</h4>
           <h5 className="card-text">
             <small>price:</small>${product.price}
@@ -20,6 +25,14 @@ class CartItem extends React.Component {
             <small>Quantity added: </small>
             {product.qty_added}
           </span>
+          <button
+            className="btn btn-sm btn-warning float-right"
+            onClick={() => {
+              this.context.removeFromCart(product.id);
+            }}
+          >
+            Remove from cart{" "}
+          </button>
         </div>
       </div>
     );
