@@ -1,4 +1,5 @@
 /**
+ * 
  * The Route is serving us a provider to send any data that we have in our Route
  * to our home component and all other component that we will be creating inside our route.
  *
@@ -15,6 +16,7 @@ import Home from "./Home";
 import Cart from "./Pages/cart";
 import AppContext from "./AppContext";
 import { getProducts } from "./repo";
+import CartItem from "./Pages/cartItem";
 
 class Routes extends React.Component {
   constructor() {
@@ -22,7 +24,7 @@ class Routes extends React.Component {
     this.state = {
       products: [],
 
-      cart: JSON.parse(localStorage.getItem("cart")) || [], // every thing we will have in our cart we will send it to our local storage.
+      cart: JSON.parse(localStorage.getItem("cart")) || [], // everything we will have in our cart we will send it to our local storage.
 
       // This is the function that adds our item to our  cart. It collects our products and saves it to our local storage.
       addToCart: (product, qty) => {
@@ -36,6 +38,27 @@ class Routes extends React.Component {
           cart: cart,
         });
         localStorage.setItem("cart", JSON.stringify(cart));
+      },
+      //
+      removeFromCart: (id) => {
+        let cart = this.state.cart,
+          newCart = [];
+
+        cart.map((cartItem) => {
+          if (cartItem.product.id !== id) newCart.push(cartItem);
+        });
+        this.setState({
+          cart: newCart,
+        });
+        localStorage.setItem("cart", JSON.stringify(newCart));
+      },
+
+      clearCart: () => {
+        localStorage.clear();
+        this.setState({ cart: [] });
+        if ({ cart: [] } === null) {
+          alert("cart has been cleared successfully");
+        }
       },
     };
   }

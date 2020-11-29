@@ -23,6 +23,15 @@ class Cart extends React.Component {
                 key={index}
               />
             ))}
+            <hr />
+            <div className="">
+              <button
+                className="btn btn-danger float-right"
+                onClick={this.context.clearCart}
+              >
+                Clear Cart
+              </button>
+            </div>
           </div>
         </div>
       </div>
