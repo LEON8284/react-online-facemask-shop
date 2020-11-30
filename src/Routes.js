@@ -14,8 +14,9 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Cart from "./Pages/cart";
+//import Disposablemask from "./Pages/Disposablemask";
 import AppContext from "./AppContext";
-import { getProducts } from "./repo";
+import { getProducts, getDisposableMask } from "./repo";
 import CartItem from "./Pages/cartItem";
 
 class Routes extends React.Component {
@@ -73,6 +74,12 @@ class Routes extends React.Component {
       this.setState({ products });
     });
   }
+  componentDidMount() {
+    getDisposableMask().then((disposableMask) => {
+      this.setState({ disposableMask });
+    });
+  }
+
   render() {
     return (
       <AppContext.Provider value={this.state}>
