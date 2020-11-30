@@ -17,3 +17,10 @@ let url = "http://localhost:4000";
 export function getProducts() {
   return axios.get(`${url}/products`).then((response) => response.data);
 }
+
+/**
+ * we will accpet the  disposable face mask products from the node server by linking it with axios
+ */
+export function getDisposableMask() {
+  return axios.get(`${url}/disposableMask`).then((response) => response.data);
+}
