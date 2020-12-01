@@ -9,6 +9,10 @@ import CartItem from "./cartItem";
 
 class Cart extends React.Component {
   render() {
+    let total = 0;
+    this.context.cart.map((item) => {
+      total += item.qty_added * item.product.price;
+    });
     return (
       <div>
         <Navbar />
@@ -24,13 +28,21 @@ class Cart extends React.Component {
               />
             ))}
             <hr />
-            <div className="">
-              <button
-                className="btn btn-danger float-right"
-                onClick={this.context.clearCart}
-              >
-                Clear Cart
-              </button>
+            <div className="float-right">
+              <h4>
+                <small>Total Amount:</small>
+              </h4>
+              <span className="text-primary"> $ {total}</span>
+            </div>
+            <div className="row">
+              <div className="col-sm-12">
+                <button
+                  className="btn btn-danger float-right"
+                  onClick={this.context.clearCart}
+                >
+                  Clear Cart
+                </button>
+              </div>
             </div>
           </div>
         </div>
