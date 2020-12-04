@@ -23,7 +23,7 @@ class CartItem extends React.Component {
           </h5>
           <span className="card-text">
             <small>Quantity added: </small>
-            {product.qty_added}
+            {product.qty}
           </span>
           <button
             className="btn btn-sm btn-warning float-right"

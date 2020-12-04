@@ -9,10 +9,11 @@ import CartItem from "./cartItem";
 
 class Cart extends React.Component {
   render() {
-    let total = 0;
+    let total = 0.0;
     this.context.cart.map((item) => {
       total += item.qty_added * item.product.price;
     });
+
     return (
       <div>
         <Navbar />

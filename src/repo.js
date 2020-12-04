@@ -17,3 +17,11 @@ let url = "http://localhost:4000";
 export function getProducts() {
   return axios.get(`${url}/products`).then((response) => response.data);
 }
+
+/**
+ * We will accept the disposable face mask products here  by liniking it with axios
+ */
+
+export function getdisposable() {
+  return axios.get(`${url}/disposable`).then((response) => response.data);
+}

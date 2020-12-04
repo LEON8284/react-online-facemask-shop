@@ -1,6 +1,6 @@
 /**
  * 
- * The Route is serving us a provider to send any data that we have in our Route
+ * The Routes is serving us a provider to send any data that we have in our Route
  * to our home component and all other component that we will be creating inside our route.
  *
  *So now whatever we put inside the state will  be sent to to our entire project using a value.
@@ -15,14 +15,16 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Cart from "./Pages/cart";
 import AppContext from "./AppContext";
-import { getProducts } from "./repo";
+import { getdisposable, getProducts } from "./repo";
 import CartItem from "./Pages/cartItem";
+import DisposableMask from "./Pages/DisposableMask";
 
 class Routes extends React.Component {
   constructor() {
     super();
     this.state = {
       products: [],
+      disposables: [],
 
       cart: JSON.parse(localStorage.getItem("cart")) || [], // everything we will have in our cart we will send it to our local storage.
 
@@ -31,8 +33,7 @@ class Routes extends React.Component {
         let cart = this.state.cart;
         cart.push({
           product: product,
-          qty,
-          added: qty,
+          qty_added: qty,
         });
         this.setState({
           cart: cart,
@@ -70,7 +71,10 @@ class Routes extends React.Component {
    */
   componentDidMount() {
     getProducts().then((products) => {
-      this.setState({ products });
+      this.setState({ ...this.state, products: products });
+    });
+    getdisposable().then((disposables) => {
+      this.setState({ ...this.state, disposables: disposables });
     });
   }
   render() {
@@ -79,6 +83,7 @@ class Routes extends React.Component {
         <Switch>
           <Route exact path="/" component={Home}></Route>
           <Route path="/cart" component={Cart}></Route>
+          <Route path="/disposablemask" component={DisposableMask}></Route>
         </Switch>
       </AppContext.Provider>
     );
