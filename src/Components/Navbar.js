@@ -1,10 +1,11 @@
 /**
- * We need to make sure that whenever we click on the cart our nav bar will receive the figure and update it for the viewers to see.
+ * We need to make sure that whenever we click on the cart our nav bar will receive the figure and update it for
+ * the viewers to see.
  *We are using appContext API because when the cart button will be clicked the navbar will be updated immediately.
  *
  */
 import React from "react";
-import Logo from "./logo.jpg";
+import Logo from "./logo.png";
 import "./index.css";
 import AppContext from "../AppContext";
 import { Link } from "react-router-dom";

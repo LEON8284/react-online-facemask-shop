@@ -1,9 +1,13 @@
+/**
+ * This is the child component of the Home. This component is created to populate the product in our Home component.
+ */
+
 import React from "react";
 import AppContext from "./AppContext";
 
 class HomeItem extends React.Component {
   render() {
-    let { products } = this.props;
+    let { products } = this.props; // reeving data from parent component Home.
     return (
       <div className="col-sm-3">
         <div className="card p-3 mb-5">
